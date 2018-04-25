@@ -323,7 +323,11 @@ function processWesternText(textSequence, { fontFamily, gridSize, yInterval, let
       word += character;
 
       // 在这里先装入 width 和 height 信息
-      wordChar.push({ ...char, width: width, height: charFontSize });
+        let obj = {
+			width: width, height: charFontSize;
+		};
+        Object.assign(obj, char);
+      wordChar.push(obj);
     }
 
   }
