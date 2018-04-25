@@ -301,11 +301,12 @@ function processWesternText(textSequence, { fontFamily, gridSize, yInterval, let
 
         // 确定文字位置并添加到返回数组中
         const offsetY = (charFontSize - gridSize) / 2;
-        layoutSequence.push({
-          ...char,
-          x: currentX,
-          y: currentY - offsetY
-        });
+        let obj = {
+			x: currentX,
+			y: currentY - offsetY
+        };
+        Object.assign(obj, char);
+        layoutSequence.push(obj);
 
         currentX += char.width + letterSpacing;
       }
