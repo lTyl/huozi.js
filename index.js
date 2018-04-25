@@ -204,12 +204,12 @@ export default function huozi(textSequence, layoutOptions, onSequence) {
     }
 
     const item = {
-      ...char,
       x: currentX + quoteFix,
       y: currentY - offsetY,
       width: width,
       height: charFontSize
     };
+    Object.assign(item, char);
 
     // 确定文字位置并添加到返回数组中
     layoutSequence.push(onSequence ? (onSequence(item) || item) : item);
